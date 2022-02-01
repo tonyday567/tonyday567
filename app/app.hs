@@ -24,10 +24,10 @@ data CI = CI | NoCI deriving (Eq)
 
 row :: Text -> (Text, CI) -> Text
 row user (repo, ci) =
-  [trimming||$repo |![Stars](https://img.shields.io/github/stars/$user/$repo?style=social) | [![Issues](https://img.shields.io/github/issues/$user/$repo?label=%22%22)](https://github.com/$user/$repo/issues) | [![PRs](https://img.shields.io/github/issues-pr/$user/$repo?label=%22%22)](https://github.com/$user/$repo/pulls) | $citext | [![Hackage](https://img.shields.io/hackage/v/$repo.svg?label=%22%22)](https://hackage.haskell.org/package/$repo)|
+  [trimming||[$repo](https://github.com/$user/$repo) |![Stars](https://img.shields.io/github/stars/$user/$repo?style=social) | [![Issues](https://img.shields.io/github/issues/$user/$repo?label=%22%22)](https://github.com/$user/$repo/issues) | [![PRs](https://img.shields.io/github/issues-pr/$user/$repo?label=%22%22)](https://github.com/$user/$repo/pulls) | $citext | [![Hackage](https://img.shields.io/hackage/v/$repo.svg?label=%22%22)](https://hackage.haskell.org/package/$repo)|
 |]
     where
-      citext = if ci==CI then [trimming|![CI](https://github.com/$user/$repo/workflows/haskell-ci/badge.svg)|] else mempty
+      citext = if ci==CI then [trimming|[![CI](https://github.com/$user/$repo/workflows/haskell-ci/badge.svg)](https://github.com/$user/$repo/actions)|] else mempty
 
 main :: IO ()
 main = Text.writeFile "readme.md" $
@@ -40,8 +40,7 @@ main = Text.writeFile "readme.md" $
    ("box",CI),
    ("perf",CI),
    ("poker-fold",NoCI),
-   ("hecklist",NoCI),
+   ("checklist",NoCI),
    ("web-rep",CI),
-   ("mealy",CI),
-   ("hcount",NoCI)
+   ("mealy",CI)
    ])
