@@ -38,6 +38,7 @@ main = Text.writeFile "readme.md" $
    ("numhask-space",CI),
    ("numhask-array",CI),
    ("box",CI),
+   ("formatn",CI),
    ("perf",CI),
    ("poker-fold",NoCI),
    ("checklist",NoCI),
