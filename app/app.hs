@@ -34,6 +34,7 @@ main = Text.writeFile "readme.md" $
   header <> "\n" <>
   (Text.intercalate "\n" $ row "tonyday567" <$>
   [("chart-svg",CI),
+   ("color-adjust",NoCI),
    ("numhask",CI),
    ("numhask-space",CI),
    ("numhask-array",CI),
