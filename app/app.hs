@@ -52,31 +52,35 @@ emacsRow user repo =
 main :: IO ()
 main =
   Text.writeFile "readme.md" $
-    header <> "\n"
+    header
+      <> "\n"
       <> haskellSection
       <> "\n"
-      <> Text.intercalate "\n" (
-             row "tonyday567"
-               <$> [ ("chart-svg", CI),
-                     ("color-adjust", NoCI),
-                     ("dotparse", CI),
-                     ("research-hackage", CI),
-                     ("numhask", CI),
-                     ("numhask-space", CI),
-                     ("numhask-array", CI),
-                     ("box", CI),
-                     ("formatn", CI),
-                     ("perf", CI),
-                     ("poker-fold", NoCI),
-                     ("web-rep", CI),
-                     ("mealy", CI)
-                   ])
+      <> Text.intercalate
+        "\n"
+        ( row "tonyday567"
+            <$> [ ("chart-svg", CI),
+                  ("prettychart", CI),
+                  ("color-adjust", NoCI),
+                  ("dotparse", NoCI),
+                  ("research-hackage", CI),
+                  ("numhask", CI),
+                  ("numhask-space", CI),
+                  ("numhask-array", CI),
+                  ("box", CI),
+                  ("formatn", CI),
+                  ("perf", CI),
+                  ("poker-fold", NoCI),
+                  ("web-rep", CI),
+                  ("mealy", CI)
+                ]
+        )
       <> emacsSection
       <> "\n"
       <> Text.intercalate
         "\n"
         ( emacsRow "tonyday567"
             <$> [ "checklist",
-                  ".doom.d"
+                  "doom"
                 ]
         )
