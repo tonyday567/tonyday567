@@ -60,7 +60,7 @@ main =
         "\n"
         ( row "tonyday567"
             <$> [ ("chart-svg", CI),
-                  ("prettychart", CI),
+                  ("prettychart", NoCI),
                   ("color-adjust", NoCI),
                   ("dotparse", NoCI),
                   ("research-hackage", CI),
