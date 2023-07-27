@@ -3,7 +3,6 @@
 
 import Prelude
 import Data.String.Interpolate
-import Data.List (intercalate)
 
 header :: String
 header =
@@ -15,9 +14,8 @@ haskellSection =
 
 \#\# Haskell
 
-| Name | Stars | Issues | Merge Requests | Status | Hackage |
-| ---- | ----- | ------ | -------------- | ------ | ------- |
-
+| Name       | Stars  | Issues | PRs    | Status   | Hackage  |
+| ---------- | ------ | ------ | ------ | -------- | -------- |
 |]
 
 emacsSection :: String
@@ -26,9 +24,8 @@ emacsSection =
 
 \#\# Emacs
 
-| Name | Stars | Issues | Merge Requests |
-| ---- | ----- | ------ | -------------- |
-
+| Name       | Stars  | Issues | PRs    |
+| ---------- | ------ | ------ | ------ |
 |]
 
 data CI = CI | NoCI deriving (Eq)
@@ -50,11 +47,8 @@ main :: IO ()
 main =
   writeFile "readme.md" $
     header
-      <> "\n"
       <> haskellSection
-      <> "\n"
-      <> intercalate
-        "\n"
+      <> mconcat
         ( row "tonyday567"
             <$> [
                   ("numhask", CI),
@@ -72,9 +66,7 @@ main =
                 ]
         )
       <> emacsSection
-      <> "\n"
-      <> intercalate
-        "\n"
+      <> mconcat
         ( emacsRow "tonyday567"
             <$> [ "checklist",
                   "doom"

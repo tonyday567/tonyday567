@@ -1,43 +1,26 @@
 Twitter: [@tonyday567](https://twitter.com/tonyday567)
 
-
 ## Haskell
 
-| Name | Stars | Issues | Merge Requests | Status | Hackage |
-| ---- | ----- | ------ | -------------- | ------ | ------- |
-
-
+| Name       | Stars  | Issues | PRs    | Status   | Hackage  |
+| ---------- | ------ | ------ | ------ | -------- | -------- |
 |[numhask](https://github.com/tonyday567/numhask) |![Stars](https://img.shields.io/github/stars/tonyday567/numhask?style=social) | [![Issues](https://img.shields.io/github/issues/tonyday567/numhask?label=%22%22)](https://github.com/tonyday567/numhask/issues) | [![PRs](https://img.shields.io/github/issues-pr/tonyday567/numhask?label=%22%22)](https://github.com/tonyday567/numhask/pulls) | [![CI](https://github.com/tonyday567/numhask/workflows/haskell-ci/badge.svg)](https://github.com/tonyday567/numhask/actions) | [![Hackage](https://img.shields.io/hackage/v/numhask.svg?label=%22%22)](https://hackage.haskell.org/package/numhask)|
-
 |[numhask-space](https://github.com/tonyday567/numhask-space) |![Stars](https://img.shields.io/github/stars/tonyday567/numhask-space?style=social) | [![Issues](https://img.shields.io/github/issues/tonyday567/numhask-space?label=%22%22)](https://github.com/tonyday567/numhask-space/issues) | [![PRs](https://img.shields.io/github/issues-pr/tonyday567/numhask-space?label=%22%22)](https://github.com/tonyday567/numhask-space/pulls) | [![CI](https://github.com/tonyday567/numhask-space/workflows/haskell-ci/badge.svg)](https://github.com/tonyday567/numhask-space/actions) | [![Hackage](https://img.shields.io/hackage/v/numhask-space.svg?label=%22%22)](https://hackage.haskell.org/package/numhask-space)|
-
 |[numhask-array](https://github.com/tonyday567/numhask-array) |![Stars](https://img.shields.io/github/stars/tonyday567/numhask-array?style=social) | [![Issues](https://img.shields.io/github/issues/tonyday567/numhask-array?label=%22%22)](https://github.com/tonyday567/numhask-array/issues) | [![PRs](https://img.shields.io/github/issues-pr/tonyday567/numhask-array?label=%22%22)](https://github.com/tonyday567/numhask-array/pulls) | [![CI](https://github.com/tonyday567/numhask-array/workflows/haskell-ci/badge.svg)](https://github.com/tonyday567/numhask-array/actions) | [![Hackage](https://img.shields.io/hackage/v/numhask-array.svg?label=%22%22)](https://hackage.haskell.org/package/numhask-array)|
-
 |[chart-svg](https://github.com/tonyday567/chart-svg) |![Stars](https://img.shields.io/github/stars/tonyday567/chart-svg?style=social) | [![Issues](https://img.shields.io/github/issues/tonyday567/chart-svg?label=%22%22)](https://github.com/tonyday567/chart-svg/issues) | [![PRs](https://img.shields.io/github/issues-pr/tonyday567/chart-svg?label=%22%22)](https://github.com/tonyday567/chart-svg/pulls) | [![CI](https://github.com/tonyday567/chart-svg/workflows/haskell-ci/badge.svg)](https://github.com/tonyday567/chart-svg/actions) | [![Hackage](https://img.shields.io/hackage/v/chart-svg.svg?label=%22%22)](https://hackage.haskell.org/package/chart-svg)|
-
 |[prettychart](https://github.com/tonyday567/prettychart) |![Stars](https://img.shields.io/github/stars/tonyday567/prettychart?style=social) | [![Issues](https://img.shields.io/github/issues/tonyday567/prettychart?label=%22%22)](https://github.com/tonyday567/prettychart/issues) | [![PRs](https://img.shields.io/github/issues-pr/tonyday567/prettychart?label=%22%22)](https://github.com/tonyday567/prettychart/pulls) | [![CI](https://github.com/tonyday567/prettychart/workflows/haskell-ci/badge.svg)](https://github.com/tonyday567/prettychart/actions) | [![Hackage](https://img.shields.io/hackage/v/prettychart.svg?label=%22%22)](https://hackage.haskell.org/package/prettychart)|
-
 |[perf](https://github.com/tonyday567/perf) |![Stars](https://img.shields.io/github/stars/tonyday567/perf?style=social) | [![Issues](https://img.shields.io/github/issues/tonyday567/perf?label=%22%22)](https://github.com/tonyday567/perf/issues) | [![PRs](https://img.shields.io/github/issues-pr/tonyday567/perf?label=%22%22)](https://github.com/tonyday567/perf/pulls) | [![CI](https://github.com/tonyday567/perf/workflows/haskell-ci/badge.svg)](https://github.com/tonyday567/perf/actions) | [![Hackage](https://img.shields.io/hackage/v/perf.svg?label=%22%22)](https://hackage.haskell.org/package/perf)|
-
 |[dotparse](https://github.com/tonyday567/dotparse) |![Stars](https://img.shields.io/github/stars/tonyday567/dotparse?style=social) | [![Issues](https://img.shields.io/github/issues/tonyday567/dotparse?label=%22%22)](https://github.com/tonyday567/dotparse/issues) | [![PRs](https://img.shields.io/github/issues-pr/tonyday567/dotparse?label=%22%22)](https://github.com/tonyday567/dotparse/pulls) | [![CI](https://github.com/tonyday567/dotparse/workflows/haskell-ci/badge.svg)](https://github.com/tonyday567/dotparse/actions) | [![Hackage](https://img.shields.io/hackage/v/dotparse.svg?label=%22%22)](https://hackage.haskell.org/package/dotparse)|
-
 |[box](https://github.com/tonyday567/box) |![Stars](https://img.shields.io/github/stars/tonyday567/box?style=social) | [![Issues](https://img.shields.io/github/issues/tonyday567/box?label=%22%22)](https://github.com/tonyday567/box/issues) | [![PRs](https://img.shields.io/github/issues-pr/tonyday567/box?label=%22%22)](https://github.com/tonyday567/box/pulls) | [![CI](https://github.com/tonyday567/box/workflows/haskell-ci/badge.svg)](https://github.com/tonyday567/box/actions) | [![Hackage](https://img.shields.io/hackage/v/box.svg?label=%22%22)](https://hackage.haskell.org/package/box)|
-
 |[formatn](https://github.com/tonyday567/formatn) |![Stars](https://img.shields.io/github/stars/tonyday567/formatn?style=social) | [![Issues](https://img.shields.io/github/issues/tonyday567/formatn?label=%22%22)](https://github.com/tonyday567/formatn/issues) | [![PRs](https://img.shields.io/github/issues-pr/tonyday567/formatn?label=%22%22)](https://github.com/tonyday567/formatn/pulls) | [![CI](https://github.com/tonyday567/formatn/workflows/haskell-ci/badge.svg)](https://github.com/tonyday567/formatn/actions) | [![Hackage](https://img.shields.io/hackage/v/formatn.svg?label=%22%22)](https://hackage.haskell.org/package/formatn)|
-
 |[poker-fold](https://github.com/tonyday567/poker-fold) |![Stars](https://img.shields.io/github/stars/tonyday567/poker-fold?style=social) | [![Issues](https://img.shields.io/github/issues/tonyday567/poker-fold?label=%22%22)](https://github.com/tonyday567/poker-fold/issues) | [![PRs](https://img.shields.io/github/issues-pr/tonyday567/poker-fold?label=%22%22)](https://github.com/tonyday567/poker-fold/pulls) |  | [![Hackage](https://img.shields.io/hackage/v/poker-fold.svg?label=%22%22)](https://hackage.haskell.org/package/poker-fold)|
-
 |[web-rep](https://github.com/tonyday567/web-rep) |![Stars](https://img.shields.io/github/stars/tonyday567/web-rep?style=social) | [![Issues](https://img.shields.io/github/issues/tonyday567/web-rep?label=%22%22)](https://github.com/tonyday567/web-rep/issues) | [![PRs](https://img.shields.io/github/issues-pr/tonyday567/web-rep?label=%22%22)](https://github.com/tonyday567/web-rep/pulls) | [![CI](https://github.com/tonyday567/web-rep/workflows/haskell-ci/badge.svg)](https://github.com/tonyday567/web-rep/actions) | [![Hackage](https://img.shields.io/hackage/v/web-rep.svg?label=%22%22)](https://hackage.haskell.org/package/web-rep)|
-
 |[mealy](https://github.com/tonyday567/mealy) |![Stars](https://img.shields.io/github/stars/tonyday567/mealy?style=social) | [![Issues](https://img.shields.io/github/issues/tonyday567/mealy?label=%22%22)](https://github.com/tonyday567/mealy/issues) | [![PRs](https://img.shields.io/github/issues-pr/tonyday567/mealy?label=%22%22)](https://github.com/tonyday567/mealy/pulls) | [![CI](https://github.com/tonyday567/mealy/workflows/haskell-ci/badge.svg)](https://github.com/tonyday567/mealy/actions) | [![Hackage](https://img.shields.io/hackage/v/mealy.svg?label=%22%22)](https://hackage.haskell.org/package/mealy)|
 
 
 ## Emacs
 
-| Name | Stars | Issues | Merge Requests |
-| ---- | ----- | ------ | -------------- |
-
-
+| Name       | Stars  | Issues | PRs    |
+| ---------- | ------ | ------ | ------ |
 |[checklist](https://github.com/tonyday567/checklist) |![Stars](https://img.shields.io/github/stars/tonyday567/checklist?style=social) | [![Issues](https://img.shields.io/github/issues/tonyday567/checklist?label=%22%22)](https://github.com/tonyday567/checklist/issues) | [![PRs](https://img.shields.io/github/issues-pr/tonyday567/checklist?label=%22%22)](https://github.com/tonyday567/checklist/pulls) |
-
 |[doom](https://github.com/tonyday567/doom) |![Stars](https://img.shields.io/github/stars/tonyday567/doom?style=social) | [![Issues](https://img.shields.io/github/issues/tonyday567/doom?label=%22%22)](https://github.com/tonyday567/doom/issues) | [![PRs](https://img.shields.io/github/issues-pr/tonyday567/doom?label=%22%22)](https://github.com/tonyday567/doom/pulls) |
