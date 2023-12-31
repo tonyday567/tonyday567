@@ -56,19 +56,25 @@ main =
                   ("numhask-array", CI),
                   ("chart-svg", CI),
                   ("prettychart", CI),
-                  ("perf", CI),
                   ("dotparse", CI),
+                  ("perf", CI),
                   ("box", CI),
+                  ("box-socket", CI),
                   ("formatn", CI),
                   ("poker-fold", NoCI),
                   ("web-rep", CI),
-                  ("mealy", CI)
+                  ("mealy", CI),
+                  ("cabal-fix", NoCI),
+                  ("huihua", NoCI),
+                  ("eulerproject", NoCI)
                 ]
         )
       <> emacsSection
       <> mconcat
         ( emacsRow "tonyday567"
             <$> [ "checklist",
-                  "doom"
+                  "doom",
+                  "ob-haskell-ng",
+                  "haskell-lite"
                 ]
         )
