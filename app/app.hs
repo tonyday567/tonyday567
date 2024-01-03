@@ -1,8 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE QuasiQuotes #-}
 
-import Prelude
 import Data.String.Interpolate
+import Prelude
 
 header :: String
 header =
@@ -50,8 +50,7 @@ main =
       <> haskellSection
       <> mconcat
         ( row "tonyday567"
-            <$> [
-                  ("numhask", CI),
+            <$> [ ("numhask", CI),
                   ("numhask-space", CI),
                   ("numhask-array", CI),
                   ("chart-svg", CI),
@@ -66,7 +65,8 @@ main =
                   ("mealy", CI),
                   ("cabal-fix", NoCI),
                   ("huihua", NoCI),
-                  ("eulerproject", NoCI)
+                  ("hcount", NoCI),
+                  ("eulerproject", CI)
                 ]
         )
       <> emacsSection
