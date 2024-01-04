@@ -66,6 +66,10 @@ main =
                   ("cabal-fix", NoCI),
                   ("huihua", NoCI),
                   ("hcount", NoCI),
+                  ("anal", NoCI),
+                  ("ephemeral", CI),
+                  ("cabal-fix", NoCI),
+                  ("markup-parse", CI),
                   ("eulerproject", CI)
                 ]
         )
