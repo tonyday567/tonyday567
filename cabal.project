@@ -1,6 +1,3 @@
 packages:
   tonyday567.cabal
 
-allow-newer:
-  string-interpolate:template-haskell,
-  string-interpolate:text,
