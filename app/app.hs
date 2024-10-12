@@ -52,7 +52,8 @@ main =
         ( row "tonyday567"
             <$> [ ("numhask", CI),
                   ("numhask-space", CI),
-                  ("numhask-array", CI),
+                  ("harpie", CI),
+                  ("harpie-numhask", CI),
                   ("chart-svg", CI),
                   ("prettychart", CI),
                   ("dotparse", CI),
@@ -62,13 +63,10 @@ main =
                   ("formatn", CI),
                   ("web-rep", CI),
                   ("mealy", CI),
-                  ("huihua", NoCI),
-                  ("hcount", NoCI),
-                  ("anal", NoCI),
+                  ("huihua", CI),
                   ("ephemeral", CI),
-                  ("cabal-fix", NoCI),
-                  ("markup-parse", CI),
-                  ("eulerproject", CI)
+                  ("cabal-fix", CI),
+                  ("markup-parse", CI)
                 ]
         )
       <> emacsSection
