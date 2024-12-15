@@ -36,7 +36,7 @@ row user (repo, ci) =
 |]
   where
     citext :: String
-    citext = if ci == CI then [i|[![CI](https://github.com/#{user}/#{repo}/workflows/haskell-ci/badge.svg)](https://github.com/#{user}/#{repo}/actions)|] else mempty
+    citext = if ci == CI then [i|[![CI](https://github.com/#{user}/#{repo}/actions/workflows/haskell-ci.yml/badge.svg?branch=main)](https://github.com/#{user}/#{repo}/actions)|] else mempty
 
 emacsRow :: String -> String -> String
 emacsRow user repo =
