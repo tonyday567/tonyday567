@@ -32,11 +32,11 @@ data CI = CI | NoCI deriving (Eq)
 
 row :: String -> (String, CI) -> String
 row user (repo, ci) =
-  [i||[#{repo}](https://github.com/#{user}/#{repo}) |![Stars](https://img.shields.io/github/stars/#{user}/#{repo}?style=social) | [![Issues](https://img.shields.io/github/issues/#{user}/#{repo}?label=%22%22)](https://github.com/#{user}/#{repo}/issues) | [![PRs](https://img.shields.io/github/issues-pr/#{user}/#{repo}?label=%22%22)](https://github.com/#{user}/#{repo}/pulls) | #{citext} | [![Hackage](https://img.shields.io/hackage/v/#{repo}.svg?label=%22%22)](https://hackage.haskell.org/package/#{repo})|
+  [i||[#{repo}](https://github.com/#{user}/#{repo}) |![Stars](https://img.shields.io/github/stars/#{user}/#{repo}?style=social) | [![Issues](https://img.shields.io/github/issues/#{user}/#{repo}?label=%22%22)](https://github.com/#{user}/#{repo}/issues) | [![PRs](https://img.shields.io/github/issues-pr/#{user}/#{repo}?label=%22%22)](https://github.com/#{user}/#{repo}/pulls) | #{citext} | [![hackage](https://img.shields.io/hackage/v/#{repo}.svg?label=%22%22)](https://hackage.haskell.org/package/#{repo})|
 |]
   where
     citext :: String
-    citext = if ci == CI then [i|[![CI](https://github.com/#{user}/#{repo}/actions/workflows/haskell-ci.yml/badge.svg?branch=main)](https://github.com/#{user}/#{repo}/actions)|] else mempty
+    citext = if ci == CI then [i|[![build](https://github.com/#{user}/#{repo}/actions/workflows/haskell-ci.yml/badge.svg)](https://github.com/#{user}/#{repo}/actions/workflows/haskell-ci.yml)|] else mempty
 
 emacsRow :: String -> String -> String
 emacsRow user repo =
