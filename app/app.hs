@@ -81,13 +81,14 @@ main =
         )
       <> dataSection
       <> mconcat
-        [ row "datahaskell" ("datahaskell-starter", NoCI)
-        , row "dataframe" ("mchav", NoCI)
+        [ row "mchav" ("dataframe", NoCI)
         , row "hasktorch" ("hasktorch", NoCI)
         , row "IHaskell" ("IHaskell", NoCI)
         , row "haskell-distributed" ("distributed-process", NoCI)
         , row "augustss" ("MicroHs", NoCI)
+        , row "datahaskell" ("datahaskell-starter", NoCI)
         ]
+
       <> emacsSection
       <> mconcat
         ( emacsRow "tonyday567"
