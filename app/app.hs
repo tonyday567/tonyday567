@@ -18,6 +18,16 @@ haskellSection =
 | ---------- | ------ | ------ | ------ | -------- | -------- |
 |]
 
+dataSection :: String
+dataSection =
+  [i|
+
+\#\# Data Haskell
+
+| Name       | Stars  | Issues | PRs    | Status   | Hackage  |
+| ---------- | ------ | ------ | ------ | -------- | -------- |
+|]
+
 emacsSection :: String
 emacsSection =
   [i|
@@ -69,6 +79,15 @@ main =
                   ("markup-parse", CI)
                 ]
         )
+      <> dataSection
+      <> mconcat
+        [ row "datahaskell" ("datahaskell-starter", NoCI)
+        , row "dataframe" ("mchav", NoCI)
+        , row "hasktorch" ("hasktorch", NoCI)
+        , row "IHaskell" ("IHaskell", NoCI)
+        , row "haskell-distributed" ("distributed-process", NoCI)
+        , row "augustss" ("MicroHs", NoCI)
+        ]
       <> emacsSection
       <> mconcat
         ( emacsRow "tonyday567"
