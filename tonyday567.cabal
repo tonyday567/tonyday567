@@ -12,40 +12,39 @@ bug-reports: https://github.com/tonyday567/tonyday567/issues
 synopsis: See readme.md
 description: See readme.md for description.
 build-type: Simple
-tested-with: GHC == 9.6.2
+tested-with: ghc ==9.6.2
 
 source-repository head
-    type: git
-    location: https://github.com/tonyday567/tonyday567
+  type: git
+  location: https://github.com/tonyday567/tonyday567
 
 common ghc-options-exe-stanza
-    ghc-options:
-        -fforce-recomp
-        -funbox-strict-fields
-        -rtsopts
-        -threaded
-        -with-rtsopts=-N
+  ghc-options:
+    -fforce-recomp
+    -funbox-strict-fields
+    -rtsopts
+    -threaded
+    -with-rtsopts=-N
 
 common ghc-options-stanza
-    ghc-options:
-        -Wall
-        -Wcompat
-        -Widentities
-        -Wincomplete-record-updates
-        -Wincomplete-uni-patterns
-        -Wpartial-fields
-        -Wredundant-constraints
+  ghc-options:
+    -Wall
+    -Wcompat
+    -Widentities
+    -Wincomplete-record-updates
+    -Wincomplete-uni-patterns
+    -Wpartial-fields
+    -Wredundant-constraints
 
 common ghc2021-stanza
-    default-language: GHC2021
+  default-language: GHC2021
 
 executable tonyday567
-    import: ghc-options-exe-stanza
-    import: ghc-options-stanza
-    import: ghc2021-stanza
-    main-is: app.hs
-    hs-source-dirs: app
-    build-depends:
-    build-depends:
-        , base               >=4.7 && <5
-        , string-interpolate >=0.3 && <0.4
+  import: ghc-options-exe-stanza
+  import: ghc-options-stanza
+  import: ghc2021-stanza
+  main-is: app.hs
+  hs-source-dirs: app
+  build-depends:
+  build-depends:
+    base >=4.7 && <5
