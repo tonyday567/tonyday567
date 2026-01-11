@@ -1,0 +1,71 @@
+Configuration is affected by the following files:
+- cabal.project
+Build profile: -w ghc-9.14.1 -O1
+In order, the following will be built (use -v for more details):
+ - tonyday567-0.0.1 (exe:tonyday567) (configuration changed)
+Configuring executable 'tonyday567' for tonyday567-0.0.1...
+Preprocessing executable 'tonyday567' for tonyday567-0.0.1...
+Building executable 'tonyday567' for tonyday567-0.0.1...
+[1 of 1] Compiling Main             ( app/app.hs, dist-newstyle/build/aarch64-osx/ghc-9.14.1/tonyday567-0.0.1/x/tonyday567/build/tonyday567/tonyday567-tmp/Main.o )
+app/app.hs:44:5: warning: [GHC-40910] [-Wunused-matches]
+    Defined but not used: ‘user’
+   |
+44 | row user (repo, ci) =
+   |     ^^^^
+
+app/app.hs:44:11: warning: [GHC-40910] [-Wunused-matches]
+    Defined but not used: ‘repo’
+   |
+44 | row user (repo, ci) =
+   |           ^^^^
+
+app/app.hs:49:5: warning: [GHC-40910] [-Wunused-local-binds]
+    Defined but not used: ‘citext’
+   |
+49 |     citext = if ci == CI then """[![build](https://github.com/#{user}/#{repo}/actions/workflows/haskell-ci.yml/badge.svg)](https://github.com/#{user}/#{repo}/actions/workflows/haskell-ci.yml)""" else mempty
+   |     ^^^^^^
+
+app/app.hs:52:10: warning: [GHC-40910] [-Wunused-matches]
+    Defined but not used: ‘user’
+   |
+52 | emacsRow user repo =
+   |          ^^^^
+
+app/app.hs:52:15: warning: [GHC-40910] [-Wunused-matches]
+    Defined but not used: ‘repo’
+   |
+52 | emacsRow user repo =
+   |               ^^^^
+
+[1 of 2] Compiling Main             ( app/app.hs, dist-newstyle/build/aarch64-osx/ghc-9.14.1/tonyday567-0.0.1/x/tonyday567/build/tonyday567/tonyday567-tmp/Main.o )
+app/app.hs:44:5: warning: [GHC-40910] [-Wunused-matches]
+    Defined but not used: ‘user’
+   |
+44 | row user (repo, ci) =
+   |     ^^^^
+
+app/app.hs:44:11: warning: [GHC-40910] [-Wunused-matches]
+    Defined but not used: ‘repo’
+   |
+44 | row user (repo, ci) =
+   |           ^^^^
+
+app/app.hs:49:5: warning: [GHC-40910] [-Wunused-local-binds]
+    Defined but not used: ‘citext’
+   |
+49 |     citext = if ci == CI then """[![build](https://github.com/#{user}/#{repo}/actions/workflows/haskell-ci.yml/badge.svg)](https://github.com/#{user}/#{repo}/actions/workflows/haskell-ci.yml)""" else mempty
+   |     ^^^^^^
+
+app/app.hs:52:10: warning: [GHC-40910] [-Wunused-matches]
+    Defined but not used: ‘user’
+   |
+52 | emacsRow user repo =
+   |          ^^^^
+
+app/app.hs:52:15: warning: [GHC-40910] [-Wunused-matches]
+    Defined but not used: ‘repo’
+   |
+52 | emacsRow user repo =
+   |               ^^^^
+
+[2 of 2] Linking dist-newstyle/build/aarch64-osx/ghc-9.14.1/tonyday567-0.0.1/x/tonyday567/build/tonyday567/tonyday567 [Objects changed]
