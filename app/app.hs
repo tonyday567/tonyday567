@@ -1,99 +1,131 @@
-{-# LANGUAGE MultilineStrings #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE QuasiQuotes #-}
 
 import Prelude
 
-header :: String
-header =
-  """Twitter: [@tonyday567](https://twitter.com/tonyday567)"""
+ciBadge :: String -> String -> String
+ciBadge user repo =
+  "[![build](https://github.com/"
+    <> user
+    <> "/"
+    <> repo
+    <> "/actions/workflows/haskell-ci.yml/badge.svg)](https://github.com/"
+    <> user
+    <> "/"
+    <> repo
+    <> "/actions/workflows/haskell-ci.yml)"
 
-haskellSection :: String
-haskellSection =
-  """
-
-  ## Haskell
-
-  | Name       | Stars  | Issues | PRs    | Status   | Hackage  |
-  | ---------- | ------ | ------ | ------ | -------- | -------- |
-  """
-
-dataSection :: String
-dataSection =
-  """
-
-  ## Data Haskell
-
-  | Name       | Stars  | Issues | PRs    | Status   | Hackage  |
-  | ---------- | ------ | ------ | ------ | -------- | -------- |
-  """
-
-emacsSection :: String
-emacsSection =
-  """
-
-  ## Emacs
-
-  | Name       | Stars  | Issues | PRs    |
-  | ---------- | ------ | ------ | ------ |
-  """
-
-data CI = CI | NoCI deriving (Eq)
-
-row :: String -> (String, CI) -> String
+row :: String -> (String, Bool) -> String
 row user (repo, ci) =
-  """|[#{repo}](https://github.com/#{user}/#{repo}) |![Stars](https://img.shields.io/github/stars/#{user}/#{repo}?style=social) | [![Issues](https://img.shields.io/github/issues/#{user}/#{repo}?label=%22%22)](https://github.com/#{user}/#{repo}/issues) | [![PRs](https://img.shields.io/github/issues-pr/#{user}/#{repo}?label=%22%22)](https://github.com/#{user}/#{repo}/pulls) | #{citext} | [![hackage](https://img.shields.io/hackage/v/#{repo}.svg?label=%22%22)](https://hackage.haskell.org/package/#{repo})|
-  """
-  where
-    citext :: String
-    citext = if ci == CI then """[![build](https://github.com/#{user}/#{repo}/actions/workflows/haskell-ci.yml/badge.svg)](https://github.com/#{user}/#{repo}/actions/workflows/haskell-ci.yml)""" else mempty
+  "|["
+    <> repo
+    <> "](https://github.com/"
+    <> user
+    <> "/"
+    <> repo
+    <> ") |![Stars](https://img.shields.io/github/stars/"
+    <> user
+    <> "/"
+    <> repo
+    <> "?style=social) | [![Issues](https://img.shields.io/github/issues/"
+    <> user
+    <> "/"
+    <> repo
+    <> "?label=%22%22)](https://github.com/"
+    <> user
+    <> "/"
+    <> repo
+    <> "/issues) | [![PRs](https://img.shields.io/github/issues-pr/"
+    <> user
+    <> "/"
+    <> repo
+    <> "?label=%22%22)](https://github.com/"
+    <> user
+    <> "/"
+    <> repo
+    <> "/pulls) | "
+    <> (if ci then ciBadge user repo else "")
+    <> " | [![hackage](https://img.shields.io/hackage/v/"
+    <> repo
+    <> ".svg?label=%22%22)](https://hackage.haskell.org/package/"
+    <> repo
+    <> ")|\n"
 
 emacsRow :: String -> String -> String
 emacsRow user repo =
-  """|[#{repo}](https://github.com/#{user}/#{repo}) |![Stars](https://img.shields.io/github/stars/#{user}/#{repo}?style=social) | [![Issues](https://img.shields.io/github/issues/#{user}/#{repo}?label=%22%22)](https://github.com/#{user}/#{repo}/issues) | [![PRs](https://img.shields.io/github/issues-pr/#{user}/#{repo}?label=%22%22)](https://github.com/#{user}/#{repo}/pulls) |
-  """
+  "|["
+    <> repo
+    <> "](https://github.com/"
+    <> user
+    <> "/"
+    <> repo
+    <> ") |![Stars](https://img.shields.io/github/stars/"
+    <> user
+    <> "/"
+    <> repo
+    <> "?style=social) | [![Issues](https://img.shields.io/github/issues/"
+    <> user
+    <> "/"
+    <> repo
+    <> "?label=%22%22)](https://github.com/"
+    <> user
+    <> "/"
+    <> repo
+    <> "/issues) | [![PRs](https://img.shields.io/github/issues-pr/"
+    <> user
+    <> "/"
+    <> repo
+    <> "?label=%22%22)](https://github.com/"
+    <> user
+    <> "/"
+    <> repo
+    <> "/pulls) |\n"
+
+hlist :: [(String, [(String, Bool)])]
+hlist =
+  [ ("circuits",
+      [ ("circuits", True),
+        ("circuits-parser", True),
+        ("circuits-io", True),
+        ("circuits-meter", True)
+      ]),
+    ("charts",
+      [ ("chart-svg", True),
+        ("prettychart", True),
+        ("dotparse", True)
+      ]),
+    ("numhask",
+      [ ("numhask", True),
+        ("numhask-space", True),
+        ("harpie", True),
+        ("harpie-numhask", True)
+      ]),
+    ("other",
+      [ ("formatn", True),
+        ("mealy", True),
+        ("huihua", True),
+        ("ephemeral", True)
+      ])
+  ]
+
+elist :: [(String, [String])]
+elist =
+  [ ("emacs",
+      [ "checklist",
+        "doom",
+        "ob-haskell-ng",
+        "haskell-lite"
+      ])
+  ]
+
+section :: String -> String
+section name = "\n## " <> name <> "\n\n| Name | Stars | Issues | PRs | Status | Hackage |\n| ---- | ----- | ------ | --- | ------ | ------- |\n"
+
+emacsHeader :: String
+emacsHeader = "\n## emacs\n\n| Name | Stars | Issues | PRs |\n| ---- | ----- | ------ | --- |\n"
 
 main :: IO ()
 main =
   writeFile "readme.md" $
-    header
-      <> haskellSection
-      <> mconcat
-        ( row "tonyday567"
-            <$> [ ("numhask", CI),
-                  ("numhask-space", CI),
-                  ("harpie", CI),
-                  ("harpie-numhask", CI),
-                  ("chart-svg", CI),
-                  ("prettychart", CI),
-                  ("dotparse", CI),
-                  ("perf", CI),
-                  ("box", CI),
-                  ("box-socket", CI),
-                  ("formatn", CI),
-                  ("web-rep", CI),
-                  ("mealy", CI),
-                  ("huihua", CI),
-                  ("ephemeral", CI),
-                  ("cabal-fix", CI),
-                  ("markup-parse", CI)
-                ]
-        )
-      <> dataSection
-      <> mconcat
-        [ row "mchav" ("dataframe", NoCI),
-          row "hasktorch" ("hasktorch", NoCI),
-          row "IHaskell" ("IHaskell", NoCI),
-          row "haskell-distributed" ("distributed-process", NoCI),
-          row "augustss" ("MicroHs", NoCI),
-          row "datahaskell" ("datahaskell-starter", NoCI)
-        ]
-      <> emacsSection
-      <> mconcat
-        ( emacsRow "tonyday567"
-            <$> [ "checklist",
-                  "doom",
-                  "ob-haskell-ng",
-                  "haskell-lite"
-                ]
-        )
+    "[![build](https://github.com/tonyday567/circuits/actions/workflows/haskell-ci.yml/badge.svg)](https://github.com/tonyday567/circuits/actions/workflows/haskell-ci.yml)\n\n"
+      <> mconcat [section name <> mconcat (row "tonyday567" <$> repos) | (name, repos) <- hlist]
+      <> mconcat [emacsHeader <> mconcat (emacsRow "tonyday567" <$> repos) | (name, repos) <- elist]
