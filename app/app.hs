@@ -1,109 +1,75 @@
-{-# LANGUAGE OverloadedStrings #-}
+-- | Profile README generator.
+-- Usage: runghc app/app.hs
+-- Reads nothing; writes readme.md in the current directory.
 
 import Prelude
+
+data Status = CI_Hackage | CI_Only | NoCI_Hackage | None deriving (Eq)
+
+status :: Status -> (Bool, Bool)
+status CI_Hackage = (True, True)
+status CI_Only = (True, False)
+status NoCI_Hackage = (False, True)
+status None = (False, False)
 
 ciBadge :: String -> String -> String
 ciBadge user repo =
   "[![build](https://github.com/"
-    <> user
-    <> "/"
-    <> repo
+    <> user <> "/" <> repo
     <> "/actions/workflows/haskell-ci.yml/badge.svg)](https://github.com/"
-    <> user
-    <> "/"
-    <> repo
+    <> user <> "/" <> repo
     <> "/actions/workflows/haskell-ci.yml)"
 
-row :: String -> (String, Bool) -> String
-row user (repo, ci) =
-  "|["
-    <> repo
-    <> "](https://github.com/"
-    <> user
-    <> "/"
-    <> repo
-    <> ") |![Stars](https://img.shields.io/github/stars/"
-    <> user
-    <> "/"
-    <> repo
-    <> "?style=social) | [![Issues](https://img.shields.io/github/issues/"
-    <> user
-    <> "/"
-    <> repo
-    <> "?label=%22%22)](https://github.com/"
-    <> user
-    <> "/"
-    <> repo
-    <> "/issues) | [![PRs](https://img.shields.io/github/issues-pr/"
-    <> user
-    <> "/"
-    <> repo
-    <> "?label=%22%22)](https://github.com/"
-    <> user
-    <> "/"
-    <> repo
-    <> "/pulls) | "
-    <> (if ci then ciBadge user repo else "")
-    <> " | [![hackage](https://img.shields.io/hackage/v/"
-    <> repo
-    <> ".svg?label=%22%22)](https://hackage.haskell.org/package/"
-    <> repo
-    <> ")|\n"
+hackageBadge :: String -> String
+hackageBadge repo =
+  " [![hackage](https://img.shields.io/hackage/v/"
+    <> repo <> ".svg?label=%22%22)](https://hackage.haskell.org/package/" <> repo <> ")"
+
+row :: String -> (String, Status) -> String
+row user (repo, s) =
+  let (ci, hkg) = status s
+  in "|["
+    <> repo <> "](https://github.com/" <> user <> "/" <> repo <> ") "
+    <> "|![Stars](https://img.shields.io/github/stars/" <> user <> "/" <> repo <> "?style=social) "
+    <> "| [![Issues](https://img.shields.io/github/issues/" <> user <> "/" <> repo <> "?label=%22%22)](https://github.com/" <> user <> "/" <> repo <> "/issues) "
+    <> "| [![PRs](https://img.shields.io/github/issues-pr/" <> user <> "/" <> repo <> "?label=%22%22)](https://github.com/" <> user <> "/" <> repo <> "/pulls) "
+    <> "| " <> (if ci then ciBadge user repo else "")
+    <> " |" <> (if hkg then hackageBadge repo else "")
+    <> "|\n"
 
 emacsRow :: String -> String -> String
 emacsRow user repo =
   "|["
-    <> repo
-    <> "](https://github.com/"
-    <> user
-    <> "/"
-    <> repo
-    <> ") |![Stars](https://img.shields.io/github/stars/"
-    <> user
-    <> "/"
-    <> repo
-    <> "?style=social) | [![Issues](https://img.shields.io/github/issues/"
-    <> user
-    <> "/"
-    <> repo
-    <> "?label=%22%22)](https://github.com/"
-    <> user
-    <> "/"
-    <> repo
-    <> "/issues) | [![PRs](https://img.shields.io/github/issues-pr/"
-    <> user
-    <> "/"
-    <> repo
-    <> "?label=%22%22)](https://github.com/"
-    <> user
-    <> "/"
-    <> repo
-    <> "/pulls) |\n"
+    <> repo <> "](https://github.com/" <> user <> "/" <> repo <> ") "
+    <> "|![Stars](https://img.shields.io/github/stars/" <> user <> "/" <> repo <> "?style=social) "
+    <> "| [![Issues](https://img.shields.io/github/issues/" <> user <> "/" <> repo <> "?label=%22%22)](https://github.com/" <> user <> "/" <> repo <> "/issues) "
+    <> "| [![PRs](https://img.shields.io/github/issues-pr/" <> user <> "/" <> repo <> "?label=%22%22)](https://github.com/" <> user <> "/" <> repo <> "/pulls) |\n"
 
-hlist :: [(String, [(String, Bool)])]
+hlist :: [(String, [(String, Status)])]
 hlist =
   [ ("circuits",
-      [ ("circuits", True),
-        ("circuits-parser", True),
-        ("circuits-io", True),
-        ("circuits-meter", True)
+      [ ("circuits", CI_Hackage),
+        ("circuits-parser", None),
+        ("circuits-io", None),
+        ("circuits-meter", CI_Hackage),
+        ("circuits-llm", None)
       ]),
     ("charts",
-      [ ("chart-svg", True),
-        ("prettychart", True),
-        ("dotparse", True)
+      [ ("chart-svg", CI_Hackage),
+        ("prettychart", CI_Hackage),
+        ("dotparse", CI_Hackage)
       ]),
     ("numhask",
-      [ ("numhask", True),
-        ("numhask-space", True),
-        ("harpie", True),
-        ("harpie-numhask", True)
+      [ ("numhask", CI_Hackage),
+        ("numhask-space", CI_Hackage),
+        ("harpie", CI_Hackage),
+        ("harpie-numhask", CI_Hackage),
+        ("huihua", CI_Hackage)
       ]),
     ("other",
-      [ ("formatn", True),
-        ("mealy", True),
-        ("huihua", True),
-        ("ephemeral", True)
+      [ ("formatn", CI_Hackage),
+        ("mealy", CI_Hackage),
+        ("ephemeral", CI_Hackage)
       ])
   ]
 
@@ -112,7 +78,6 @@ elist =
   [ ("emacs",
       [ "checklist",
         "doom",
-        "ob-haskell-ng",
         "haskell-lite"
       ])
   ]
