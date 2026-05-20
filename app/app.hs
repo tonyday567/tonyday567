@@ -69,7 +69,8 @@ hlist =
     ("other",
       [ ("formatn", CI_Hackage),
         ("mealy", CI_Hackage),
-        ("ephemeral", CI_Hackage)
+        ("ephemeral", CI_Hackage),
+        ("mnet", None)
       ])
   ]
 
